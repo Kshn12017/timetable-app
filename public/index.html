@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Timetable Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Teacher Timetable Management</h1>
+
+    <!-- Form for Entering Today's Timetable -->
+    <section>
+        <h2>Enter Today's Timetable</h2>
+        <form id="timetable-form">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required><br>
+
+            <label for="submit-class">Class:</label>
+            <select id="submit-class" name="class"></select><br>
+
+            <label for="submit-division">Division:</label>
+            <select id="submit-division" name="division"></select><br>
+
+            <label for="period-time">Period Time:</label>
+            <input type="time" id="period-time" name="period-time" required><br>
+
+            <label for="submit-subject">Subject:</label>
+            <select id="submit-subject" name="subject"></select><br>
+
+            <label for="submit-teacher">Teacher:</label>
+            <select id="submit-teacher" name="teacher"></select><br>
+
+            <button type="submit">Submit Timetable</button>
+        </form>
+    </section>
+
+    <!-- Form for Marking Teachers Absent -->
+    <section>
+        <h2>Mark Teachers Absent</h2>
+        <form id="absence-form">
+            <label for="absence-date">Date:</label>
+            <input type="date" id="absence-date" name="absence-date" required><br>
+
+            <label for="absent-teachers">Select Absent Teachers:</label>
+            <div id="absent-teachers"></div>
+
+
+            <button type="submit">Mark Absent</button>
+        </form>
+    </section>
+
+    <!-- View Timetable Section -->
+    <section>
+        <h2>View Timetable</h2>
+        <label for="view-date">Select Date:</label>
+        <input type="date" id="view-date" name="view-date" required><br>
+
+        <label for="view-class">Select Class:</label>
+        <select id="view-class" name="view-class" required></select><br>
+
+        <label for="view-division">Select Division:</label>
+        <select id="view-division" name="view-division" required></select><br>
+
+        <button id="load-timetable" type="button">Load Timetable</button>
+
+        <table id="timetable-display">
+            <thead>
+                <tr>
+                    <th>Division</th>
+                    <th>Period Time</th>
+                    <th>Subject</th>
+                    <th>Teacher</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
