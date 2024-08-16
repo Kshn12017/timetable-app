@@ -69,14 +69,29 @@ app.get('/subjects', (req, res) => {
     });
 });
 
-//Get All Teachers
+// Get Teachers by Class
 app.get('/teachers', (req, res) => {
-    const sql = 'SELECT * FROM Teachers';
-    db.query(sql, (err, result) => {
-        if (err) throw err;
-        res.json(result);
-    });
+    const class_id = req.query.class_id;
+
+    if (class_id) {
+        const sql = `
+            SELECT teacher_id, name
+            FROM Teachers
+            WHERE JSON_SEARCH(classes_assigned, 'one', ?) IS NOT NULL
+        `;
+        db.query(sql, [class_id], (err, result) => {
+            if (err) throw err;
+            res.json(result);
+        });
+    } else {
+        const sql = 'SELECT teacher_id, name FROM Teachers';
+        db.query(sql, (err, result) => {
+            if (err) throw err;
+            res.json(result);
+        });
+    }
 });
+
 
 //Mark a Teacher as Absent
 app.post('/absence', (req, res) => {

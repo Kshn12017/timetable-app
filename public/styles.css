@@ -8,24 +8,59 @@ h1, h2 {
     color: #333;
 }
 
-form {
-    margin-bottom: 20px;
+/* Form Section Styles */
+.form-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-label {
-    display: inline-block;
-    width: 100px;
-    margin-right: 10px;
+/* Flexbox for Form Items */
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow wrapping */
 }
 
-input, select, button {
-    padding: 5px;
-    margin-bottom: 10px;
-    font-size: 16px;
+.form-group input, 
+.form-group select {
+    flex: 1;
 }
+
+/* Prevent Line Breaks */
+.form-group label,
+.form-group input,
+.form-group select {
+    white-space: nowrap;
+}
+
+/* For Checkboxes */
+.form-check-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap; /* Prevent line breaks within each checkbox group */
+}
+
+.form-check input {
+    flex-shrink: 0;
+}
+
 
 button {
-    background-color: #28a745;
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -33,5 +68,24 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #0056b3;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #181818;
+    color: #f4f4f4;
+}
+
+body.dark-mode h1, 
+body.dark-mode h2 {
+    color: #f4f4f4;
+}
+
+body.dark-mode .form-section {
+    background-color: #242424;
+}
+
+body.dark-mode button {
+    background-color: #28a745;
 }
